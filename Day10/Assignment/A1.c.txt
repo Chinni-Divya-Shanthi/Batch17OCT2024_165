@@ -1,0 +1,84 @@
+A1. Check whether a given number can be expressed as the sum of two prime number
+
+i/p
+Enter a positive integer: 34
+Output
+34 = 3 + 31
+
+34 = 5 + 29
+34 = 11 + 23
+34 = 17 + 17
+NoofWays = 4
+
+
+Author:CSP
+DOC:7/11/2024
+Version:0.1v
+
+
+
+#include <stdio.h>
+int checkPrime(int n);
+int main() {
+  int n, i, flag = 0,count=0;
+  printf("Enter a positive integer: ");
+  scanf("%d", &n);
+
+  for (i = 2; i <= n / 2; ++i) {
+    
+    if (checkPrime(i) == 1) {
+      
+      if (checkPrime(n - i) == 1) {
+        printf("%d = %d + %d\n", n, i, n - i);
+        flag = 1;
+        count++;
+      }
+    }
+  }
+  if(count>0)
+  { 
+    printf("NoOfWays= %d\n",count);
+  }
+  else
+  {
+   printf("NoOfWays= -1\n");
+  }
+
+  if (flag == 0)
+    printf("%d cannot be expressed as the sum of two prime numbers.", n);
+
+  return 0;
+}
+
+
+int checkPrime(int n) {
+  int i, isPrime = 1;
+
+
+  if (n == 0 || n == 1) {
+    isPrime = 0;
+  }
+  else {
+    for(i = 2; i <= n/2; ++i) {
+      if(n % i == 0) {
+        isPrime = 0;
+        break;
+      }
+    }
+  }
+
+  return isPrime;
+}
+
+
+
+
+
+output:
+
+
+Enter the number: 34
+34 = 3 + 31
+34 = 5 + 29
+34 = 11 + 23
+34 = 17 + 17
