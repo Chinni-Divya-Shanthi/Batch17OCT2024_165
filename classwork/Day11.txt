@@ -1,0 +1,105 @@
+DAY 11(8-11-2024)
+Malloc have only one input but in calloc  have two  inputs
+Calloc is mostly widely used than malloc
+Free()
+If we already did free() then again when you do it shows error i.e
+Free():double free detected in tcache 2 aborted (core dumped) ,so don’t do double free
+Strings:
+ 
+String is collection of characters.
+String is ends with NULL value (\0)
+Null value we do not use in any program so to differentiate we use the null value at the end of value
+With character no null is required
+Declaration with initialization
+Char Name[6]={‘h’,’e’,’l’,’l’,’0’,’/0’}
+=>give one size extra for null here
+Char Name[6]=”hello”;
+Char Name[]=”hello world”;
+Declaration without initialization:
+Char Str[21];
+In 2D array columns are necessary but not rows.
+Char Name[][20]={“ramya”,”Sowmya”,”mani”,”prasad”,”sai”};
+Here there are 5 rows, in each word we have to use less than 20 characters (19 characters +\0);
+Char Names[10][50]; 🡺 there are 10 names each of max capacity of 50 characters
+In string ,scanf (“%d”,Name); => here we donot mention “&Name” because in pointers thumb rule it shows &* is nullify then
+&*(Name+0)🡺Name
+#include<stdio.h>
+ 
+int main()
+{
+    char Name[5];
+    int i;
+    for (i=0;i<5;i++)
+        scanf("%c",&Name[i]);
+    for(i=0;i<5;i++)
+        printf("\n%c=%d",Name[i],Name[i]);
+    scanf("%s",&*(Name+0));// scanf("%s",Name);
+    printf("%s",Name);//putc(name);
+    printf("\n\n");
+    return 0;
+}
+ 
+In this example ,In the size is 5 but the loop is till the 20 so it is illegal so it throws an error of stack smashing
+ 
+String Functions:
+Strcpy:
+Strcopy is not copy the null values
+Strcpy is have the destination and source
+The copy one should  not contain null  value
+Strncpy is present
+Syntax: 
+     Char *strcpy(char *dest,const char *src);             
+Strcat:
+Destination size have to be more than the source size
+Used to concentrate the two strings
+Strcat(s1,s2) 🡺 s1 is appended with s2
+S1=”ramya”,s2=”balivada”
+Strcat(s1,s2)
+New value of s1=ramyabalivada(without spaces)
+S2=balivada(same as before)
+Strcmp:
+It compare the string by character by character
+It stop at when the character in the string is uncomparable
+Eg: ramya ranya
+It only checks until the m=!n so it does not check remaining character
+It returns the integer if s1>s2 it gives positive
+S1<s2 => negative
+S1=s2 => equal
+Here it compares the ASIIC value of the characters
+Eg:
+If(strcmp(s1,s2)==0)
+If((strcmp(e1.fname,”ramya”)==0) &&(strcmp(e1.lname,”Sowmya”)==0)
+If((expr1)&&(expr2))
+If((e1.id==101)&&(strcmp(s1,s2)==0))
+ 
+In sprint memset and memcpy,strchr,strtok
+Strlen:
+It length of the string excluding null character
+Strerror -captures string handling errors
+Int strlen(obj)
+Printf(“%d”,strlen(name));
+It gives the length except null character
+ 
+Strstr:
+Find the first occurrence of the substring needle in string haystack
+Strchr:
+Find the first occurrence of the character in string
+Strrchrr : Find the last occurrence of the character in string 
+                                                                                                                                                                        
+Strtok:
+It checks until the given delimiter and then it will print that string till that delimiter.
+It have own initial poniter
+#include <stdio.h>
+#include<string.h>
+ 
+int main()
+{
+   char s1[400],s2[20];
+   char *ptr=NULL;
+   printf("\n enter the line with delimiter");
+   scanf("%[^n]s",s1);
+  ptr=strtok(s1,",");
+ printf("ptr:%s\n",ptr);
+  printf("\n");
+  
+}

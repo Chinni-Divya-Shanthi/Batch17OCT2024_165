@@ -1,0 +1,132 @@
+DAY -12(11-11-2024)
+                                  Recap:
+If you give the the character without null at the end if you use strlen then it give the value but it have to check until the null character appears or else it will give the wrong output
+Convert integer to character using +’0’
+#include <stdio.h>
+ 
+int main() {
+   int num = 5;  // Integer to convert
+   char ch = num + '0';  // Convert the integer to the character representing the digit
+ 
+   printf("The character representation of the integer %d is: %c\n", num, ch);
+   return 0;
+}
+Explanation:
+In ASCII, the character '0' has a value of 48, '1' is 49, and so on.
+By adding an integer to '0', you get the corresponding character. For example, 5 + '0' results in the character '5'.
+Digit is not returning a string it cannot use in nesting
+Program for string for strtok: very very important refer day 12 (p3.c)
+// Online C compiler to run C program online
+#include <stdio.h>
+ 
+int main() {
+   char lines[]="Amit,kumar,ravi";
+   char  Names[10][20];
+   int row=0;
+   int col=0;
+   char *ptr=NULL;
+   ptr=lines;
+   while(*ptr!='\0')
+   {
+       putchar(*ptr);
+       ptr++;
+   }
+   ptr=lines;
+   while(*ptr!='\0')
+   {
+       if(*ptr==',')
+       {
+           break;
+       }
+       Names[row][col]=*ptr;
+       ptr++;
+       col++;
+   }
+   Names[row][col]='\0';
+   printf("\n\n");
+   putchar(*ptr);
+   puts(Names[row]);
+   ptr++;
+   row++;
+   col=0;
+   while(*ptr!='\0')
+   {
+       if(*ptr==',')
+       {
+           break;
+       }
+       Names[row][col]=*ptr;
+       ptr++;
+       col++;
+   }
+   printf("\n\n");
+   Names[row][col]='\0';
+   printf("\n\n");
+    
+   puts(Names[row]);
+   ptr++;
+   row++;
+   col=0;
+   while(*ptr!='\0')
+   {
+       if(*ptr==',')
+       {
+           break;
+       }
+       Names[row][col]=*ptr;
+       ptr++;
+       col++;
+   }
+   printf("\n\n");
+   Names[row][col]='\0';
+   printf("\n\n");
+   puts(Names[row]);
+  
+   return 0;
+}
+ 
+o/p: amit
+      kumar
+     ravi
+In string we have to clear all the warning but we can leave the warning in integers
+In strtok the pointer can take whole string at a time
+Structure:
+Nested structure:
+ 
+ 
+Struct tagName1{
+Members of structure;
+       Struct tagName2{
+     }
+}
+Typedef struct employee{
+   Int id;
+   Int phno;
+   Int sal;
+  Char name[20];
+  Char Gender;
+  
+  
+}EMP;
+Int main()
+{ char names[10][20];
+EMP e1;
+e1.id;
+strcpy(e1.Name,”ramya”);
+e1.gender=’f’;
+(or)
+E1.id=atoi(names[0]);
+Strcpy(e1.name,names[1]);
+E1.gender=names[2][0];
+E1.phno=atoi(names[3]);
+E1.sal=atoi(names[4]);
+ 
+}
+ 
+To convert string to character just give the value of first array value (just access the first element in that string) i.e names[2][0]
+In normal pointers the pointer is points to & but in structure we use  pointers donot points  to &
+Error: free():invalid pointer   
+Aborted: core dumped
+Because we move the pointer to the next location and at the end we free() the allocated memory at the end but we have to free() the error at the start i.e e=temp
+ 
+           
