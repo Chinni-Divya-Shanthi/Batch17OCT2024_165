@@ -1,0 +1,65 @@
+DAY-18 (21-11)
+Circular queue, priority queue for objective
+Searching algorithms: linear, binary
+Linear / sequential: searching each element one after the other sequentially
+Time consuming. Time complexity O[n]
+Can be searched in any unsorted array/list
+Interval / binary: search in either of the half in sorted list
+Time consuming is less
+Divide and conquer
+Search algorithm can be implemented in iterative or recursive methods
+ 
+Iterative method
+Do until low is equal to high
+mid = (low +high)/2
+ 
+if ( x== arr[mid])
+  return mid
+ 
+elif( x > arr[mid])
+  low = mid + 1
+ 
+else
+  high = mid -1
+ 
+ 
+Recursive method
+mid = (low +high)/2
+ 
+if ( x== arr[mid])
+  return mid
+ 
+else if( x > arr[mid])
+  return function(arr, key, mid + 1, high)
+ 
+else
+  return function(arr, key, low, mid-1)
+ 
+ 
+Practical algorithm design issues:
+Time complexity
+Space complexity
+Sorting: two types – space (2), stability (2)
+In place: sorting algorithm which does not require any extra space for sorting.
+eg: bubble sort
+Referred as sinking sort.
+In bubble sort while in increasing order, in the first iteration the last element is in the correct position
+We need two loops
+for(i=0;i<n-1;i++)
+           for(j=0;j<n-i-1;j++)
+out place: sorting algorithm which require extra space for sorting.
+eg: merge sort
+divide and conquer algorithm
+divide the array into two half and recursively continue dividing so that it can’t be divided further   
+stable sort:
+eg: insertion sort
+easy to implement
+continuous inflow
+unstable sort:
+eg: quick sort
+divide and conquer
+we can choose a pivot element(it can be first, last, any element)
+extra space is not required like merge sort
+in ascending order left to pivot are smaller in descending order left to pivot are greater
+selection sort: we repeatedly find the min element and move it to the sorted part of array to make unsorted array sort
+ In selection sort while in increasing order, in the first iteration the first (min) element is in the correct position

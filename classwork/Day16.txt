@@ -1,0 +1,60 @@
+                                                                    DAY-16(18-11-2024)
+ Data structures
+ SINGLE LINKED LIST:
+When a member of a structure is a pointer which is pointing to itself is called as self-referencing pointer.
+Eg: struct home{
+              Int value;
+               Struct home *ptr;//self referencing pointer
+};
+Eg1: 
+          struct home1{
+              Int value;
+               Struct home2 *ptr;
+//    not a self referencing pointer because the  home 2 have the different data type
+};
+struct home2{
+              float value;
+};
+ 
+ 
+Eg2:  struct home{
+              Int value;
+               Struct home *ptr;//self referencing pointer
+}Home ;
+ 
+1)Creating node or  home :
+                              
+Home h1;
+(//static allocation during compilation ,Home *h1🡺 this one is dynamic allocation)
+Home h2;
+Home h3;
+ 
+2)Initializing /assigning of nodes:
+h1.value=10;
+h2.value=20;
+h3.value=30;
+h1.ptr=NULL;
+h2.ptr=NULL;
+h3.ptr=NULL;
+ 
+Struct home *ptr;                                 
+Ptr=&h1;
+Printf(“%d”,h1.value);🡺10
+Printf(“%d”,ptr->value);🡺10
+ 
+3)Making relationships /creation of linked list
+                               h1.ptr=&h2;
+                               h2.ptr=&h3;
+4)Navigating /traversing                                 
+ struct home *ptr1=&h1; 🡺base address of list starting element of the list
+ printf(“%d”,ptr1->value) 🡺 contentsof(2000)🡺
+ contents(contents of(100))🡺10
+      ptr1=&h2; (or) ptr1=h1.ptr;
+      printf(“%d”,ptr1->value);🡺20
+      ptr1=&h3; (or) ptr1=h2.ptr;
+      printf(“%d”,ptr1->value);🡺30
+ 
+ 
+ 
+ 
+                                                                                              
